@@ -1,0 +1,1500 @@
+<style>
+    .pdf-section{position: relative;width: 793px;background: #f0f2f5;}
+    .pdf-section > *{padding-left: 60px;padding-right: 60px;}
+    .pdf-section > .page{padding: 0 !important;}
+    .pdf-section > table{padding: 0 !important;margin-left: 60px;width: calc(100% - 120px);}
+
+    .section-title{position: relative;color: #0097F4;font-size: 27px;font-weight: 700;padding: 0;display: flex;align-items: center;line-height: 38px;}
+    .section-title span{display: inline-block;width:26px;height:26px;background-color: #0097F4;line-height: 26px;text-align: center;font-size: 18px;color: #fff;margin-right: 8px;}
+    .section-subtitle{position:relative;font-size: 21px;font-weight: 700;padding: 16px 0 10px;}
+    .section-subtitle img{width: 20px;}
+    .section-subtitle + .section-ssub-title{padding-top: 0;}
+    .section-ssub-title{font-size: 19px;font-weight: 700;padding: 28px 0 12px;}
+    p{padding: 0;margin: 0;box-sizing: border-box;}
+    .empty {font-size: 12px;color: #666;}
+    .prompt{font-size: 12px;color: #333;padding-top:24px ;}
+    .d-title{padding-top: 120px;display: flex;justify-content: center;color: #999;font-size: 12px;}
+    .d-title .star{padding-top: 3px;}
+</style>
+
+<div class="pdf-section">
+    <style>
+        .company-logo{text-align: center;padding: 147px 0 62px;}
+        .company-logo img{width: 134px;height: 134px;}
+        .company-name{text-align: center;font-weight: 700;font-size: 42px;padding-bottom: 36px;line-height: 48px;}
+        .zxb-title{position: relative;display: inline-block;}
+        .zxb-title div.h2{position: relative;font-size: 28px;font-weight: 500;letter-spacing: 2px;}
+        .zxb-title p{position: relative;font-size: 12px;font-weight: 400;margin: 0;word-spacing: 4px;letter-spacing: 1px;}
+        .zxb-title .line{position: relative;height: 5px;display: flex;align-items: center;justify-content: space-between;margin-top: 6px;}
+        .zxb-title .line .line-1{position: relative;display: flex;height: 100%;width: 65%;background-color: #0097F4;}
+        .zxb-title .line .line-1::after{content: '';position: absolute;top: 0;right: -5px;width: 0;height: 0;border-top: 5px solid #0097F4;border-right: 5px solid transparent;}
+        .zxb-title .line .line-2{position: relative;display: flex;height: 100%;width: 30%;background-color: #ACE0FE;}
+        .zxb-title .line .line-2::after{content: '';position: absolute;top: 0;left: -5px;width: 0;height: 0;border-bottom: 5px solid #ACE0FE;border-left: 5px solid transparent;}
+        .table{position: absolute;width:100%;height: 478px;bottom:0;left: 0;padding: 0;display: flex;align-items: center;justify-content: center;}
+        .table>img{width:100%;height:100%;position: absolute;left:0;top:0;z-index: 1;}
+        .table table{width: 350px;margin: 183px auto 193px;position: relative;z-index: 2;background-color: #fff;}
+        .table table td{font-size: 16px;}
+        .table table tr td:first-child{width: 92px;}
+    </style>
+    <%
+        var entrustStartDate = basicInfo?.entrustStartDate || '',
+            times = entrustStartDate.split(' ')[0].split('-'),
+            limitTime = ' '+times[0]+' 年 '+(times[1] || '')+' 月 '+(times[2] || '')+' 日 ',
+            defaultText = '截止至 '+limitTime+'，根据相关网站检索及致诚信用大数据分析暂未查询到相关信息，不排除因信息公开来源尚未公开、公开形式存在差异、检索时间存在滞后等情况导致的信息与客观事实不完全一致的情形，仅供客户参考';
+    %>
+    <div class="page">
+        <div class="company-logo">
+            <img src="../images/logo.png" alt="致诚信用">
+        </div>
+        <div class="company-name"><%= basicInfo?.entName || '' %></div>
+        <div style="text-align: center;">
+            <div class="zxb-title">
+                <div>
+                    <div class="h2">线上标准报告</div>
+                    <p>Online Standards Report</p>
+                    <div class="line">
+                        <span class="line-1"></span>
+                        <span class="line-2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 118px;"></div>
+        <div class="table">
+            <img src="../images/h_bg.png" alt="">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>订单编号</td>
+                        <td><%= basicInfo?.orderNo || '' %></td>
+                    </tr>
+                    <tr>
+                        <td>订购日期</td>
+                        <td><%= basicInfo?.entrustStartDate || '' %></td>
+                    </tr>
+                    <tr>
+                        <td>制作单位</td>
+                        <td>北京宜信致诚信用管理有限公司</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <style>
+        .directory-table th {background-color: #EBF7FF;font-weight: 700;font-size: 17px;}
+        .directory-table td.bold{font-weight: 700;font-size: 15px;}
+        .bg{background: #f2f2f2;}
+    </style>
+
+    <div class="section-title">目录及信息汇总</div>
+    <div style="height: 28px;"></div>
+
+    <table class="directory-table">
+        <thead>
+            <th style="width:224px;">报告目录</th>
+            <th style="width:144px;">查看记录数</th>
+            <th style="width:130px;">备注</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="bold">目录</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">1 企业背景</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">1.1 注册信息</td>
+                <td style="width:144px;"><%= basicInfo ? '有' : '--' %></td>
+                <td style="width:130px;">详见正文</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">1.2 变更记录</td>
+                <td style="width:144px;"><%= otherInfo?.alterFlag ? '有' : '无' %></td>
+                <td style="width:130px;">详见正文</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">2 资本构成及股东情况</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">2.1 资本构成</td>
+                <td style="width:144px;"><%= SHAREHOLDER?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">全部显示</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">3 企业分支机构及对外投资</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">3.1 分支机构</td>
+                <td style="width:144px;"><%= companyList?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">全部显示</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">3.2 企业对外投资</td>
+                <td style="width:144px;"><%= ENTINV?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">全部显示</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">4 法定代表人及高管信息</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">4.1 主要经营者</td>
+                <td style="width:144px;"><%= PERSON?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">全部显示</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">4.2 法定代表人对外投资</td>
+                <td style="width:144px;"><%= FRINV?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">全部显示</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">4.3 法定代表人在其他公司任职</td>
+                <td style="width:144px;"><%= FRPOSITION?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">全部显示</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">5 经营风险</td>
+                <tr>
+                    <td style="width:224px;">5.1 经营异常</td>
+                    <td style="width:144px;"><%= abnoperationInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.2 行政处罚</td>
+                    <td style="width:144px;"><%= punishmentInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.3 严重违法</td>
+                    <td style="width:144px;"><%= seriousIllegalInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.4 股权出质</td>
+                    <td style="width:144px;"><%= stakQualitInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.5 清算信息</td>
+                    <td style="width:144px;"><%= (liquidationInfo?.Leader || liquidationInfo?.Member) ? '有' : '--' %></td>
+                    <td style="width:130px;">详见正文</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.6 动产抵押</td>
+                    <td style="width:144px;"><%= mortgageInfoAndDeal?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.7 股权冻结</td>
+                    <td style="width:144px;"><%= SHARESFROST?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">全部显示</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">5.8 税务负面</td>
+                    <td style="width:144px;"><%= taxNegativeInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">全部显示</td>
+                </tr>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">6 法律风险</td>
+                <tr>
+                    <td style="width:224px;">6.1 开庭公告</td>
+                    <td style="width:144px;"><%= holdCourtNotice?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">6.2 法院公告</td>
+                    <td style="width:144px;"><%= courtNotice?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">6.3 裁判文书</td>
+                    <td style="width:144px;"><%= zcJud?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">6.4 被执行人</td>
+                    <td style="width:144px;"><%= executedPersonInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+                <tr>
+                    <td style="width:224px;">6.5 失信被执行人</td>
+                    <td style="width:144px;"><%= dishonestInfo?.length>0 ? '有' : '--' %></td>
+                    <td style="width:130px;">最多显示10条</td>
+                </tr>
+            </tr>
+            <tr>
+                <td colspan="3" class="bold bg">7 知识产权</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">7.1 进出口权</td>
+                <td style="width:144px;"><%= iePermit?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">详见正文</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">7.2 商标信息</td>
+                <td style="width:144px;"><%= trademark?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">最多显示10条</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">7.3 专利信息</td>
+                <td style="width:144px;"><%= patentInfoTen?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">最多显示10条</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">7.4 资质及认证</td>
+                <td style="width:144px;"><%= qualificationCer?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">最多显示10条</td>
+            </tr>
+            <tr>
+                <td style="width:224px;">7.5 行政许可</td>
+                <td style="width:144px;"><%= insLicenceInfo?.length>0 ? '有' : '--' %></td>
+                <td style="width:130px;">最多显示10条</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="prompt">* 报告中“--”，表示“未获取到”，或由于资料不充分“不予评价” </div>
+    <div class="d-title"><div class="star">***********************</div><div>正文开始</div><div class="star">**********************</div></div>
+    
+    <div class="end"></div>
+    
+    <style>
+        .com-name{text-align: center;font-size: 32px;padding: 20px 0 0px;}
+        .status-info-content{padding: 20px 0px;}
+        .status-info{position: relative;padding: 20px 6px;display: flex;align-items: center;justify-content: space-between;background-color: #EBF7FF;border-top: 1px solid #0097F4;}
+        .status-info .info-item{position: relative;width: 25%;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+        .status-info .info-item span{font-size: 13px;color: #666;}
+        .status-info .info-item span:first-child{font-size: 16px;line-height: 28px;font-weight: 700;color: #000;}
+        .company-table .h{width: 84px;font-weight: 700;background-color: #EBF7FF;}
+        .company-table th{background-color: #EBF7FF;}
+    </style>
+    <div class="section-title">
+        <span>1</span>企业背景
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>1.1 注册信息</span>
+    </div>
+    <div class="com-name"><%= basicInfo?.entName || '' %></div>
+    <p style="color: #666;font-size: 13px;text-align: center;">企业名称</p>
+    <% var basicInfo = BASIC?.[0] || {}; %>
+    <div class="status-info-content">
+        <div class="status-info">
+                <div class="info-item" style="width: 30%;">
+                    <span><%= basicInfo ?  basicInfo.CREDITCODE : '--'%></span>
+                    <span>统一信用代码</span>
+                </div>
+                <div class="info-item" style="width: 30%;">
+                    <span><%= basicInfo ?  basicInfo.REGNO : '--'%></span>
+                    <span>注册号</span>
+                </div>
+                <div class="info-item" style="width: 20%;">
+                    <span><%= basicInfo ?  (basicInfo.CREDITCODE || '').slice(8,17) : '--'%></span>
+                    <span>组织机构代码</span>
+                </div>
+                <div class="info-item" style="width: 20%;">
+                    <span><%= basicInfo ?  basicInfo.ENTSTATUS : '--'%></span>
+                    <span>经营状态</span>
+                </div>
+        </div>
+    </div>
+    
+    <table class="company-table">
+        <tbody>
+            <tr>
+                <td class="h">企业类型</td>
+                <td><%= basicInfo ?  basicInfo.ENTTYPE : '--'%></td>
+                <td class="h">成立日期</td>
+                <td><%= basicInfo ?  basicInfo.ESDATE : '--'%></td>
+            </tr>
+            <tr>
+                <td class="h">法定代表人</td>
+                <td><%= basicInfo ?  basicInfo.FRNAME : '--'%></td>
+                <td class="h">注册资本</td>
+                <td><%= basicInfo ?  basicInfo.REGCAP : '--'%><%= basicInfo ?  basicInfo.REGCAPCUR : ''%></td>
+            </tr>
+            <tr>
+                <td class="h">登记机关</td>
+                <td><%= basicInfo ?  basicInfo.REGORG : '--'%></td>
+                <td class="h">营业期限</td>
+                <td><%= basicInfo ?  basicInfo.REGORG : '--'%></td>
+            </tr>
+            <tr>
+                <td class="h">注册地址</td>
+                <td colspan="3"><%= basicInfo ?  basicInfo.DOM : '--'%></td>
+            </tr>
+            <tr>
+                <td class="h">经营范围</td>
+                <td colspan="3"><%= basicInfo ?  basicInfo.OPSCOPE : '--'%></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div style="height: 30px;"></div>
+    
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>1.2 变更记录</span>
+    </div>
+    
+    <div class="section-ssub-title">1.2.1 企业名称变更</div>
+    <% var nameAlter = nameAlter || []; if(nameAlter.length){ %>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前企业名称</th>
+                    <th>变更后企业名称</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < nameAlter.length; i++) {%>
+                    <tr>
+                        <td  style="width:80px;"><%= i+1 %></td>
+                        <td  style="width:120px;"><%= nameAlter[i].ALTDATE || "--"%></td>
+                        <td style="width:240px;"><%= nameAlter[i].ALTBE || "--"%></td>
+                        <td><%= nameAlter[i].ALTAF || "--"%></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="section-ssub-title">1.2.2 法定代表人变更</div>
+    <% var frAlter = frAlter || []; if(frAlter.length) { %>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前法定代表人</th>
+                    <th>变更后法定代表人</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < frAlter.length; i++) {%>
+                    <tr>
+                        <td  style="width:80px;"><%= i+1 %></td>
+                        <td  style="width:120px;"><%= frAlter[i]?.ALTDATE || "--" %></td>
+                        <td style="width:240px;"><%= frAlter[i].ALTBE || "--"%></td>
+                        <td><%= frAlter[i]?.ALTAF || "--"%></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="section-ssub-title">1.2.3 注册资本变更</div>
+    <% var capAlter = capAlter || []; if(capAlter.length) { %>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前注册资本</th>
+                    <th>变更后注册资本</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < capAlter.length; i++) {%>
+                    <tr>
+                        <td  style="width:80px;"><%= i+1 %></td>
+                        <td  style="width:120px;"><%= capAlter[i].ALTDATE || "--" %></td>
+                        <td style="width:240px;"><%= capAlter[i].ALTBE || "--"%></td>
+                        <td><%= capAlter[i].ALTAF || "--" %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    
+    <div class="section-ssub-title">1.2.4 企业性质变更</div>
+    <% var natureAlter = natureAlter || []; if(natureAlter.length){ %>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前企业性质</th>
+                    <th>变更后企业性质</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < natureAlter.length; i++) {%>
+                    <tr>
+                        <td  style="width:80px;"><%= i+1 %></td>
+                        <td  style="width:120px;"><%= natureAlter[i].ALTDATE || "--" %></td>
+                        <td style="width:240px;"><%= natureAlter[i].ALTBE || "--"%></td>
+                        <td><%= natureAlter[i].ALTAF || "--" %></td>
+                    </tr>
+                <%}%>
+    
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    
+    <div class="section-ssub-title">1.2.5 股东变更</div>
+    <% var holderAlter = holderAlter || []; if(holderAlter.length){ %>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前股东</th>
+                    <th>变更后股东</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < holderAlter.length; i++) {%>
+                    <tr>
+                        <td  style="width:80px;"><%= i+1 %></td>
+                        <td  style="width:120px;"><%= holderAlter[i].ALTDATE || "--" %></td>
+                        <td style="width:240px;"><%= holderAlter[i].ALTBE || "--"%></td>
+                        <td><%= holderAlter[i].ALTAF || "--" %></td>
+                    </tr>
+                <%}%>
+    
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="section-ssub-title">1.2.6 注册地址变更</div>
+    <% var addrAlter = addrAlter || []; if(addrAlter.length){ %>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前注册地址</th>
+                    <th>变更后注册地址</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < addrAlter.length; i++) {%>
+                <tr>
+                    <td style="width:80px;"><%= i+1 %></td>
+                    <td style="width:120px;"><%= addrAlter[i].ALTDATE || "--" %></td>
+                    <td style="width:240px;"><%= addrAlter[i].ALTBE || "--"%></td>
+                    <td><%= addrAlter[i].ALTAF || "--" %></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="section-ssub-title">1.2.7 经营范围变更</div>
+    <% if(businessAlter?.length>0) {%>
+        <table class="company-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">序号</th>
+                    <th style="width:120px;">变更日期</th>
+                    <th style="width:240px;">变更前经营范围</th>
+                    <th>变更后经营范围</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < businessAlter.length; i++) {%>
+                    <tr>
+                        <td style="width:80px;"><%= i+1 %></td>
+                        <td style="width:120px;"><%= businessAlter[i].ALTDATE || "--" %></td>
+                        <td style="width:240px;"><%= businessAlter[i].ALTBE || "--"%></td>
+                        <td><%= businessAlter[i].ALTAF || "--" %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="end"></div>
+    
+    <style>
+        #canvas{width:100%;height:400px;margin: 0px auto;}
+        .canvas-table{position: relative;border: 1px solid #bfbfbf;border-bottom: none;}
+        .canvas-table th, .canvas-table td{border: none;}
+        .canvas-table th{background-color: #EBF7FF;border-bottom: 1px solid #bfbfbf;text-wrap: nowrap;}
+        .canvas-table td{word-break: break-all;border-bottom: 1px solid #bfbfbf;}
+    </style>
+    <div class="section-title">
+        <span>2</span>资本构成及股东情况
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>2.1 资本构成</span>
+    </div>
+    
+    <% if(SHAREHOLDER?.length) { %>
+        <div id="canvas"></div>
+        <script>
+            let SHAREHOLDER = window.SHAREHOLDER,
+                isListed = "<%= (LISTEDINFO || []).length ? '1' : '0' %>",
+                seriesData = [],
+                radius=[];
+    
+            seriesData = (SHAREHOLDER || []).filter(item => item.SHANAME !== '合计').map(item => {
+                let obj = {name: item.SHANAME, ...(item || {})};
+
+                // 上市特殊处理
+                if(isListed == '1') {
+                    obj['value'] = parseFloat(item.FUNDEDRATIO || '0')*100;
+                }else{
+                    obj['value'] = parseFloat(item.SUBCONAM.toString().replace(/,/g, ''));
+                }
+
+                return obj;
+            });
+
+            let chartDom = document.getElementById('canvas'),
+            myChart = echarts.init(chartDom , null, { devicePixelRatio: 2 }),
+            option = {
+                color: [
+                    '#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de',
+                    '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc', '#1f77b4',
+                    '#dbdb8d', '#8c564b', '#7f7f7f', '#bcbd22', '#17becf',
+                    '#aec7e8', '#ff9896', '#c5b0d5', '#c49c94', '#f7b6d2',
+                    '#c7c7c7', '#d62728'
+                ],
+                devicePixelRatio:2,
+                backgroundColor: '#fff',
+                title: {
+                    text: ``,
+                    subtext: ``,
+                    left: 10,
+                    textStyle: {
+                        fontSize: 8,
+                    },
+                    subtextStyle: {
+                        fontSize: 6,
+                        color: '#666',
+                    }
+                },
+                tooltip: {
+                    show: false,
+                },
+                legend: {
+                    orient: 'horizontal',
+                    top: 260,
+                    textStyle: {
+                        fontSize: 10,
+                    },
+                    itemWidth: 12, // 图例项的宽度
+                    itemHeight: 8, // 图例项的高度
+                },
+                series: [
+                    {
+                        name: '股东出资比例',
+                        type: 'pie',
+                        radius: [60, 80],
+                        center: [200, 120],
+                        width: 400,
+                        height: 400,
+                        left: 'center',
+                        top: 0,
+                        label: {
+                            show: true,
+                            formatter(param) {
+                                let {value, percent, name, data} = param;
+
+                                if(isListed == '1') {
+                                    return `持股占比：${data.FUNDEDRATIO || '--'}\n持股数量：${name === '其他股东' ? '未知' : ((parseInt(data.SUBCONAM || '0') || '--')+'股')}`
+                                }else{
+                                    return `出资占比：${percent}%\n认缴出资额：${value}${data.REGCAPCUR || ''}`;
+                                }
+                            },
+                            fontSize: 10,
+                            lineHeight: 12,
+                            fontFamily: 'pdfFont',
+                            width: 180,
+                        },
+                        data: seriesData
+                    }
+                ],
+                graphic: [
+                    {
+                        type: 'group',
+                        left: 318,
+                        top: 102,
+                        children: [
+                            {
+                                type: 'text',
+                                style: {
+                                    text: '股东',
+                                    textAlign: 'center',
+                                    fill: '#000',
+                                    fontSize: 12,
+                                }
+                            },
+                            {
+                                type: 'text',
+                                top: 18,
+                                style: {
+                                    text: isListed == '0' ? '出资比例' : '持股比例',
+                                    textAlign: 'center',
+                                    fill: '#000',
+                                    fontSize: 12,
+                                }
+                            }
+                        ]
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        </script>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="end"></div>
+    
+    <div class="section-title">
+        <span>3</span>企业分支机构及对外投资
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>3.1 分支机构</span>
+    </div>
+    <% if(companyList?.length>0) {%>
+        <table class="canvas-table">
+            <thead>
+                <tr>
+                    <th style="width:40px;">序号</th>
+                    <th style="width:100px;">企业名称</th>
+                    <th>统一社会信用代码</th>
+                    <th style="width:72px;">成立日期</th>
+                    <th style="width:56px;">企业状态</th>
+                    <th style="width:50px;">负责人</th>
+                    <th>分支机构地址</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < companyList.length; i++) {%>
+                    <tr>
+                        <td style="width:40px;"><%= i+1 %></td>
+                        <td style="width:100px;"><%= companyList[i].name || '--'  %></td>
+                        <td><%= companyList[i].creditId || '--'  %></td>
+                        <td style="width:72px;"><%= companyList[i].foundTime || '--'  %></td>
+                        <td style="width:56px;"><%= companyList[i].registerStatus || '--'  %></td>
+                        <td style="width:50px;"><%= companyList[i].corporateRepresentative || '--'  %></td>
+                        <td><%= companyList[i].address || '--'  %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>3.2 企业对外投资</span>
+    </div>
+    <% if(ENTINV?.length>0) {%>
+        <table class="canvas-table">
+            <thead>
+                <tr>
+                    <th style="width:40px;">序号</th>
+                    <th style="width:50px;">企业名称</th>
+                    <th style="width:75px;">统一社会信用代码</th>
+                    <th style="width:60px;">成立日期</th>
+                    <th style="width:50px;">企业类型</th>
+                    <th style="width:50px;">企业状态</th>
+                    <th style="width:50px;">注册资本</th>
+                    <th style="width:50px;">出资比例</th>
+                    <th style="width:62px;">法定代表人</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < ENTINV.length; i++) {%>
+                    <tr>
+                        <td style="width:40px;"><%= i+1 %></td>
+                        <td style="width:50px;"><%= ENTINV[i].ENTNAME || '--' %></td>
+                        <td style="width:75px;"><%= ENTINV[i].ECREDITID  || '--' %></td>
+                        <td style="width:60px;"><%= ENTINV[i].ESDATE || '--'  %></td>
+                        <td style="width:50px;"><%= ENTINV[i].ENTTYPE || '--'  %></td>
+                        <td style="width:50px;"><%= ENTINV[i].ENTSTATUS || '--'  %></td>
+                        <td style="width:50px;"><%= ENTINV[i].REGCAP || '--'  %><%= ENTINV[i].REGCAPCUR || '--'  %></td>
+                        <td style="width:50px;"><%= ENTINV[i].FUNDEDRATIO || '--'  %></td>
+                        <td style="width:62px;"><%= ENTINV[i].NAME || '--'  %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="end"></div>
+    
+    <style>
+        .content{display: flex; justify-content: flex-start;flex-wrap: wrap; }
+        .content .content-item {width: 120px;min-height: 118px;border: 1px solid #BFBFBF;text-align: center;padding-top:8px; margin: 8px 7px;}
+        .content .content-item .img{width: 45px;height: 45px;border-radius: 50%;background: #EBF7FF;font-size:14px;color: #0097f4;margin: 0 auto;line-height: 45px;font-weight: 400;}
+        .content .content-item .name{font-size: 16px;font-weight: 600;color: #000000; line-height: 16px;margin: 8px 0px;word-break: break-all;}
+        .content .content-item  .line{width: 79px;height: 1px;margin: 0 auto;background-color: #BFBFBF;}
+        .content .content-item  .duties{font-size: 12px;line-height: 14px;font-weight: 400;color: #000000;margin: 8px 0;}
+        .foreign td, .otherCompany td{border: none;word-break: break-all;border-bottom:1px solid #bfbfbf;}
+        .foreign, .otherCompany {border: 1px solid #bfbfbf;border-bottom: none;}
+        .foreign th, .otherCompany th{background: #EBF7FF;border-right: none;}
+    </style>
+    <div class="section-title">
+        <span>4</span>法定代表人及高管信息
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>4.1 主要经营者</span>
+    </div>
+    <% if(PERSON?.length>0) {%>
+        <div class="content">
+            <%for(var i = 0; i < PERSON.length; i++) {%>
+                <div class="content-item">
+                    <div class="img"><%= PERSON[i].PERNAME ? PERSON[i].PERNAME.slice(0,1) : '' %></div>
+                    <div class="name"><%= PERSON[i].PERNAME || '--' %></div>
+                    <div class="line"></div>
+                    <div class="duties"><%= PERSON[i].POSITION || '--' %></div>
+                </div>
+            <%}%>
+        </div>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>4.2 法定代表人对外投资</span>
+    </div>
+    <% if(FRINV?.length>0) {%>
+        <table class="foreign">
+            <thead>
+                <th style="width:32px;">序号</th>
+                <th style="width:70px;">企业名称</th>
+                <th style="width:80px;">统一社会信用代码</th>
+                <th style="width:58px;">成立日期</th>
+                <th style="width:52px;">注册资本</th>
+                <th style="width:45px;">企业状态</th>
+                <th style="width:54px;">认缴出资额</th>
+                <th style="width:45px;">出资比例</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < FRINV.length; i++) {%>
+                    <tr>
+                        <td style="padding-left: 12px;width:32px;"><%= i+1 %></td>
+                        <td style="width:70px;"><%= FRINV[i].ENTNAME || '--' %></td>
+                        <td style="width:80px;"><%= FRINV[i].ECREDITID || '--' %></td>
+                        <td style="width:58px;"><%= FRINV[i].ESDATE || '--' %></td>
+                        <td style="width:52px;"><%= FRINV[i].REGCAP || '--' %><%= FRINV[i].REGCAPCUR || '--' %></td>
+                        <td style="width:45px;"><%= FRINV[i].ENTSTATUS || '--' %></td>
+                        <td style="width:54px;"><%= FRINV[i].SUBCONAM || '--' %><%= FRINV[i].CURRENCY || '--' %></td>
+                        <td style="width:45px;"><%= FRINV[i].FUNDEDRATIO || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div style="height: 28px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>4.3 法定代表人在其他公司任职</span>
+    </div>
+    <% if(FRPOSITION?.length>0) {%>
+        <table class="otherCompany">
+            <thead>
+                <th style="width:36px;">序号</th>
+                <th style="width:80px;">企业名称</th>
+                <th style="width:76px;">统一社会信用代码</th>
+                <th style="width:64px;">成立日期</th>
+                <th style="width:54px;">注册资本</th>
+                <th style="width:54px;">职务</th>
+                <th style="width:64px;">企业状态</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < FRPOSITION.length; i++) {%>
+                    <tr>
+                        <td style="padding-left: 12px;width:36px;"><%= i+1 %></td>
+                        <td style="width:80px;"><%= FRPOSITION[i].ENTNAME || '--' %></td>
+                        <td style="width:76px;"><%= FRPOSITION[i].ECREDITID || '--' %></td>
+                        <td style="width:64px;"><%= FRPOSITION[i].ESDATE || '--' %></td>
+                        <td style="width:54px;"><%= FRPOSITION[i].REGCAP || '--' %><%= FRPOSITION[i].REGCAPCUR || '--' %></td>
+                        <td style="width:54px;"><%= FRPOSITION[i].POSITION || '--' %></td>
+                        <td style="width:64px;"><%= FRPOSITION[i].ENTSTATUS || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="end"></div>
+    
+    <style>
+        .abnormal td{border: none; word-break: break-all;border-bottom:1px solid #bfbfbf;}
+        .abnormal {border: 1px solid #bfbfbf;border-bottom: none;}
+        .abnormal th{background: #EBF7FF;border-right: none;}
+    </style>
+    <div class="section-title">
+        <span>5</span>经营风险
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.1 经营异常</span>
+    </div>
+    <% if(abnoperationInfo?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:36px;">序号</th>
+                <th style="width:64px;">列入日期</th>
+                <th style="width:62px;">列入原因</th>
+                <th style="width:62px;">列入决定机关</th>
+                <th style="width:54px;">移出日期</th>
+                <th style="width:54px;">移出原因</th>
+                <th style="width:62px;">移出决定机关</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < abnoperationInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:36px;"><%= i+1 %></td>
+                        <td style="width:64px;"><%= abnoperationInfo[i].includeDate || '--' %></td>
+                        <td style="width:62px;"><%= abnoperationInfo[i].includeReason || '--' %></td>
+                        <td style="width:62px;"><%= abnoperationInfo[i].includeDecisionCourt || '--' %></td>
+                        <td style="width:54px;"><%= abnoperationInfo[i].excludeDate || '--' %></td>
+                        <td style="width:54px;"><%= abnoperationInfo[i].excludeReason || '--' %></td>
+                        <td style="width:62px;"><%= abnoperationInfo[i].excludeDecisionCourt || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:20px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.2 行政处罚</span>
+    </div>
+    <% if(punishmentInfo?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:30px;">序号</th>
+                <th style="width:44px;">决定日期</th>
+                <th style="width:70px;">决定文书号</th>
+                <!-- <th style="width:68px;">违法行为类型</th> -->
+                <th style="width:64px;">处罚内容</th>
+                <th style="width:60px;">决定机关</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < punishmentInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:30px;"><%= i+1 %></td>
+                        <td style="width:44px;"><%= punishmentInfo[i].judgeDate || '--' %></td>
+                        <td style="width:70px;"><%= punishmentInfo[i].penaltyDecisionNum || '--' %></td>
+                        <!-- <td style="width:68px;"><%= punishmentInfo[i].illegalBehaviorType || '--' %></td> -->
+                        <td style="width:64px;"><%= punishmentInfo[i].punishmentConten || '--' %></td>
+                        <td style="width:60px;"><%= punishmentInfo[i].judgeCourt || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:20px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.3 严重违法</span>
+    </div>
+    <% if(seriousIllegalInfo?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:30px;">序号</th>
+                <th style="width:46px;">决定日期</th>
+                <th style="width:70px;">列入原因</th>
+                <th style="width:68px;">移出日期</th>
+                <th style="width:64px;">移出原因</th>
+                <th style="width:60px;">作出决定机关</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < seriousIllegalInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:30px;"><%= i+1 %></td>
+                        <td style="width:46px;"><%= seriousIllegalInfo[i].includeDate || '--' %></td>
+                        <td style="width:70px;"><%= seriousIllegalInfo[i].includeReason || '--' %></td>
+                        <td style="width:68px;"><%= seriousIllegalInfo[i].excludeDate || '--' %></td>
+                        <td style="width:64px;"><%= seriousIllegalInfo[i].excludeReason || '--' %></td>
+                        <td style="width:60px;"><%= seriousIllegalInfo[i].includeDecisionCourt || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:20px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.4 股权出质</span>
+    </div>
+    <% if(stakQualitInfo?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:34px;">序号</th>
+                <th style="width:56px;">等级编号</th>
+                <th style="width:84px;">质权人</th>
+                <th style="width:68px;">出质人</th>
+                <th style="width:54px;">出质金额</th>
+                <th style="width:60px;">公示日期</th>
+                <th style="width:60px;">状态</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < stakQualitInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:34px;"><%= i+1 %></td>
+                        <td style="width:56px;"><%= stakQualitInfo[i].regNumber || '--' %></td>
+                        <td style="width:64px;"><%= stakQualitInfo[i].pledge || '--' %></td>
+                        <td style="width:68px;"><%= stakQualitInfo[i].equitor || '--' %></td>
+                        <td style="width:54px;"><%= stakQualitInfo[i].equitorAmount || '--' %></td>
+                        <td style="width:60px;"><%= stakQualitInfo[i].regDate || '--' %></td>
+                        <td style="width:60px;"><%= stakQualitInfo[i].status || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:20px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.5 清算信息</span>
+    </div>
+    <% if(liquidationInfo?.Leader || liquidationInfo?.Member) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:38px;">序号</th>
+                <th style="width:120px;">负责人</th>
+                <th style="width:200px;">清算组成员</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width:38px;">1</td>
+                    <td style="width:120px;"><%= liquidationInfo?.Leader || '--' %></td>
+                    <td style="width:200px;"><%= liquidationInfo?.Member || '--' %></td>
+                </tr>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.6 动产抵押</span>
+    </div>
+    <% if(mortgageInfoAndDeal?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:28px;">序号</th>
+                <th style="width:52px;">登记日期</th>
+                <th style="width:66px;">等级编号</th>
+                <th style="width:52px;">登记机关</th>
+                <th style="width:96px;">被担保债券数额</th>
+                <th style="width:64px;">状态</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < mortgageInfoAndDeal.length; i++) {%>
+                    <tr>
+                        <td style="width:28px;"><%= i+1 %></td>
+                        <td style="width:52px;"><%= mortgageInfoAndDeal[i].regDate || '--' %></td>
+                        <td style="width:66px;"><%= mortgageInfoAndDeal[i].regNumber || '--' %></td>
+                        <td style="width:52px;"><%= mortgageInfoAndDeal[i].regAuthority || '--' %></td>
+                        <td style="width:96px;"><%= mortgageInfoAndDeal[i].amountSecuredClaims || '--' %></td>
+                        <td style="width:64px;"><%= mortgageInfoAndDeal[i].status || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.7 股权冻结</span>
+    </div>
+    <% if(SHARESFROST?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:32px;">序号</th>
+                <th style="width:82px;">冻结文号</th>
+                <th style="width:66px;">冻结机关</th>
+                <th style="width:66px;">冻结起始日期</th>
+                <th style="width:66px;">冻结截止日期</th>
+                <th style="width:42px;">冻结金额</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < SHARESFROST.length; i++) {%>
+                    <tr>
+                        <td style="width:32px;"><%= i+1 %></td>
+                        <td style="width:82px;"><%= SHARESFROST[i].FRONO || '--' %></td>
+                        <td style="width:66px;"><%= SHARESFROST[i].FROAUTH || '--' %></td>
+                        <td style="width:66px;"><%= SHARESFROST[i].FROFROM || '--' %></td>
+                        <td style="width:66px;"><%= SHARESFROST[i].FROTO || '--' %></td>
+                        <td style="width:42px;"><%= SHARESFROST[i].FROAM || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:20px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>5.8 税务负面</span>
+    </div>
+    <% if(taxNegativeInfo?.length>0) {%>
+        <table class="abnormal">
+            <thead>
+                <th style="width:32px;">序号</th>
+                <th style="width:82px;">认定日期或所属日期</th>
+                <th style="width:66px;">管理机关</th>
+                <th style="width:66px;">黑名单类型</th>
+                <th style="width:66px;">税种</th>
+                <th style="width:50px;">金额或余额</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < taxNegativeInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:32px;"><%= i+1 %></td>
+                        <td style="width:82px;"><%= taxNegativeInfo[i].evalDate || '--' %></td>
+                        <td style="width:66px;"><%= taxNegativeInfo[i].managerOrg || '--' %></td>
+                        <td style="width:66px;"><%= taxNegativeInfo[i].blackType || '--' %></td>
+                        <td style="width:66px;"><%= taxNegativeInfo[i].taxOrgType || '--' %></td>
+                        <td style="width:50px;"><%= taxNegativeInfo[i].taxSum || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="end"></div>
+    
+    <style>
+        .court td{border: none;word-break: break-all;border-bottom:1px solid #bfbfbf;}
+        .court {border: 1px solid #bfbfbf;border-bottom: none;}
+        .court th{background: #EBF7FF;border-right: none;}
+    </style>
+    <div class="section-title">
+        <span>6</span>法律风险
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>6.1 开庭公告</span>
+    </div>
+    <% if(holdCourtNotice?.length>0) {%>
+        <table class="court">
+            <thead>
+                <th style="width:32px;">序号</th>
+                <th style="width:64px;">开庭日期</th>
+                <th style="width:70px;">案号</th>
+                <th style="width:62px;">案由</th>
+                <th style="width:68px;">法院名称</th>
+                <th style="width:60px;">原告</th>
+                <th style="width:62px;">被告</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < holdCourtNotice.length; i++) {%>
+                    <tr>
+                        <td style="width:32px;"><%= i+1 %></td>
+                        <td style="width:64px;"><%= holdCourtNotice[i].openTime || '--' %></td>
+                        <td style="width:70px;"><%= holdCourtNotice[i].caseNo || '--' %></td>
+                        <td style="width:62px;"><%= holdCourtNotice[i].caseReason || '--' %></td>
+                        <td style="width:68px;"><%= holdCourtNotice[i].courtName || '--' %></td>
+                        <td style="width:60px;"><%= holdCourtNotice[i].prosecutor || '--' %></td>
+                        <td style="width:62px;"><%= holdCourtNotice[i].defendant || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:28px"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>6.2 法院公告</span>
+    </div>
+    <% if(courtNotice?.length>0) {%>
+        <table class="court">
+            <thead>
+                <th style="width:26px;">序号</th>
+                <th style="width:40px;">公告日期</th>
+                <th style="width:68px;">公告类型</th>
+                <th style="width:80px;">原告</th>
+                <th style="width:90px;">被告</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < courtNotice.length; i++) {%>
+                    <tr>
+                        <!-- <td rowspan="2" style="border-right: 1px solid #bfbfbf;"><%= i+1 %></td> -->
+                        <td style="width:26px;"><%= i+1 %></td>
+                        <td style="width:40px;"><%= courtNotice[i].publishDate || '--' %></td>
+                        <td style="width:68px;"><%= courtNotice[i].type || '--' %></td>
+                        <td style="width:80px;"><%= courtNotice[i].prosecutor || '--' %></td>
+                        <td style="width:90px;"><%= courtNotice[i].defendant || '--' %></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>公告内容</td>
+                        <td colspan="3">福州市仓山区大众电器店、广东格兰仕集团有限公司、格兰仕(中山)家用电器有限公司:本院受理原告邹长君与被告福州市仓山区大众电器店、广东格兰仕集团有限公司、格兰仕(中山)家用电器有限公司产品责任纠纷一案，现依法向你公告送达起诉状副本(请求判令:1.判令三被告向邹长君退还空调价款 4350元并赔偿三倍空调价款13050元;2.判令三被告赔偿邹长君证据复印费、录音翻译费、光盘刻录费共计1000 元)、证据材料、举证通知书、应诉通知书、合议庭组成人员通知书、开庭传票。自公告之日起，经过60 日，即视为送达。提出答辩状的期限为公告送达期满后的15日内，举证期限为公告送达期满后的15日内， 并定于举证期届满后第 3 日 9 时(遇法定节假日顺延)在本院民事审判一庭开庭审理，逾期将依法缺席裁判。</td>
+                    </tr> -->
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:28px"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>6.3 裁判文书</span>
+    </div>
+    <% if(zcJud?.length>0) {%>
+        <table class="court">
+            <thead>
+                <th style="width:42px;">序号</th>
+                <th style="width:78px;">判决日期</th>
+                <th style="width:62px;">案号</th>
+                <th style="width:300px;">案由</th>
+                <th style="width:56px;">原告</th>
+                <th style="width:56px;">被告</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < zcJud.length; i++) {%>
+                    <tr>
+                        <td style="width:42px;"><%= i+1 %></td>
+                        <td style="width:78px;"><%= zcJud[i].judgeDate || '--' %></td>
+                        <td style="width:62px;"><%= zcJud[i].caseNum || '--' %></td>
+                        <td style="width:300px;"><%= zcJud[i].judgeCause || '--' %></td>
+                        <td style="width:56px;"><%= zcJud[i].prosecutor || '--' %></td>
+                        <td style="width:56px;"><%= zcJud[i].defendant || '--' %></td>
+                    </tr>
+                <%}%>
+                <!-- <tr>
+                    <td>公告内容</td>
+                    <td colspan="5">福州市仓山区大众电器店、广东格兰仕集团有限公司、格兰仕(中山)家用电器有限公司:本院受理原告邹长君与被告福州市仓山区大众电器店、广东格兰仕集团有限公司、格兰仕(中山)家用电器有限公司产品责任纠纷一案，现依法向你公告送达起诉状副本(请求判令:1.判令三被告向邹长君退还空调价款 4350元并赔偿三倍空调价款13050元;2.判令三被告赔偿邹长君证据复印费、录音翻译费、光盘刻录费共计1000 元)、证据材料、举证通知书、应诉通知书、合议庭组成人员通知书、开庭传票。自公告之日起，经过60 日，即视为送达。提出答辩状的期限为公告送达期满后的15日内，举证期限为公告送达期满后的15日内， 并定于举证期届满后第 3 日 9 时(遇法定节假日顺延)在本院民事审判一庭开庭审理，逾期将依法缺席裁判。</td>
+                </tr> -->
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:28px"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>6.4 被执行人</span>
+    </div>
+    <% if(executedPersonInfo?.length>0) {%>
+        <table class="court">
+            <thead>
+                <th style="width:36px;">序号</th>
+                <th style="width:58px;">立案时间</th>
+                <th style="width:86px;">案号</th>
+                <th style="width:70px;">执行标的</th>
+                <th style="width:68px;">案件状态</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < executedPersonInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:36px;"><%= i+1 %></td>
+                        <td style="width:58px;"><%= executedPersonInfo[i].regDate || '--' %></td>
+                        <td style="width:86px;"><%= executedPersonInfo[i].caseCode || '--' %></td>
+                        <td style="width:70px;"><%= executedPersonInfo[i].execMoney || '--' %></td>
+                        <td style="width:68px;"><%= executedPersonInfo[i].caseState || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height:28px"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>6.5 失信被执行人</span>
+    </div>
+    <% if(dishonestInfo?.length>0) {%>
+        <table class="court">
+            <thead>
+                <th style="width:30px;">序号</th>
+                <th style="width:48px;">立案时间</th>
+                <th style="width:86px;">案号</th>
+                <th style="width:70px;">履行状态</th>
+                <th style="width:94px;">执行法院</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < dishonestInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:30px;"><%= i+1 %></td>
+                        <td style="width:48px;"><%= dishonestInfo[i].regDate || '--' %></td>
+                        <td style="width:86px;"><%= dishonestInfo[i].caseCode || '--' %></td>
+                        <td style="width:70px;"><%= dishonestInfo[i].performance || '--' %></td>
+                        <td style="width:94px;"><%= dishonestInfo[i].courtName || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    
+    <div class="end"></div>
+    
+    <style>
+        .knowledge-table td{border: none;word-break: break-all;border-bottom:1px solid #bfbfbf;}
+        .knowledge-table{border: 1px solid #bfbfbf;border-bottom: none;}
+        .knowledge-table th{background: #EBF7FF;border-right: none;}
+        .illustrate{font-size: 12px;color: #999;}
+        .illustrate .d-title{padding-bottom: 42px;display: flex;justify-content: center;}
+        .illustrate .d-title .star{padding-top: 3px;}
+        .illustrate .illustrate-content{border: 1px dashed #bfbfbf;line-height: 16px;padding: 12px 16px;}
+    </style>
+    <div class="section-title">
+        <span>7</span>知识产权
+    </div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>7.1 进出口权</span>
+    </div>
+    <% if(iePermit?.length>0) {%>
+        <table class="court">
+            <thead>
+                <th style="width:36px;">进出口权</th>
+                <th style="width:66px;">海关编码</th>
+                <th style="width:62px;">报关类别</th>
+                <!-- <th style="width:62px;">企业管理类别</th> -->
+                <th style="width:68px;">注册有效期</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < iePermit.length; i++) {%>
+                <tr>
+                    <td style="width:36px;">有</td>
+                    <td style="width:66px;"><%= iePermit[i].customsCode || '--' %></td>
+                    <td style="width:62px;"><%= iePermit[i].ENTNAME || '--' %></td>
+                    <!-- <td style="width:62px;"><%= iePermit[i].ENTNAME || '--' %></td> -->
+                    <td style="width:68px;"><%= iePermit[i].validityTerm || '--' %></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height: 24px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>7.2 商标信息</span>
+    </div>
+    <% if(trademark?.length>0) {%>
+        <table class="knowledge-table">
+            <thead>
+                <th style="width:30px;">序号</th>
+                <th style="width:66px;">注册号</th>
+                <th style="width:48px;">商标</th>
+                <th style="width:62px;">商标名称</th>
+                <th style="width:134px;">类别</th>
+                <th style="width:56px;">状态</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < trademark.length; i++) {%>
+                    <tr>
+                        <td style="width:30px;"><%= i+1 %></td>
+                        <td style="width:66px;"><%= trademark[i].regno || '--' %></td>
+                        <td style="width:48px;">
+                            <img src=<%= trademark[i]?.photo  %>  alt="" style="width:30px;height: 26px;">
+                        </td>
+                        <td style="width:62px;">
+                            <p><%= trademark[i].name || '--' %></p>
+                        </td>
+                        <td style="width:134px;"><%= trademark[i].catalog || '--' %></td>
+                        <td style="width:56px;"><%= trademark[i].state || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height: 24px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>7.3 专利信息</span>
+    </div>
+    <% if(patentInfoTen?.length>0) {%>
+        <table class="knowledge-table">
+            <thead>
+                <th style="width:32px;">序号</th>
+                <th style="width:62px;">申请日期</th>
+                <th style="width:64px;">专利标题</th>
+                <th style="width:62px;">专利类型</th>
+                <th style="width:50px;">申请号</th>
+                <th style="width:66px;">申请人</th>
+                <th style="width:58px;">发布日期</th>
+                <th style="width:62px;">发布号</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < patentInfoTen.length; i++) {%>
+                    <tr>
+                        <td style="width:32px;"><%= i+1 %></td>
+                        <td style="width:62px;"><%= patentInfoTen[i].applyDate || '--' %></td>
+                        <td style="width:64px;"><%= patentInfoTen[i].title || '--' %></td>
+                        <td style="width:62px;"><%= patentInfoTen[i].type || '--' %></td>
+                        <td style="width:50px;"><%= patentInfoTen[i].applyNum || '--' %></td>
+                        <td style="width:66px;"><%= patentInfoTen[i].applicant || '--' %></td>
+                        <td style="width:58px;"><%= patentInfoTen[i].publishDate || '--' %></td>
+                        <td style="width:62px;"><%= patentInfoTen[i].publishNum || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height: 24px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>7.4 资质及认证</span>
+    </div>
+    <% if(qualificationCer?.length>0) {%>
+        <table class="knowledge-table">
+            <thead>
+                <th style="width:34px;">序号</th>
+                <th style="width:70px;">证书类型</th>
+                <th style="width:60px;">截止日期</th>
+                <th style="width:48px;">证书编号</th>
+                <th style="width:50px;">状态</th>
+                <th style="width:92px;">发证机关</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < qualificationCer.length; i++) {%>
+                    <tr>
+                        <td><%= i+1 %></td>
+                        <td><%= qualificationCer[i].category || '--' %></td>
+                        <td><%= qualificationCer[i].expirationDate || '--' %></td>
+                        <td><%= qualificationCer[i].no || '--' %></td>
+                        <td><%= qualificationCer[i].status || '--' %></td>
+                        <td><%= qualificationCer[i].certifyingAuthority || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height: 24px;"></div>
+    <div class="section-subtitle">
+        <img src="../images/subtitle-prefix.png" alt="">
+        <span>7.5 行政许可</span>
+    </div>
+    <% if(insLicenceInfo?.length>0) {%>
+        <table class="knowledge-table">
+            <thead>
+                <th style="width:34px;">序号</th>
+                <th style="width:80px;">许可文件编号</th>
+                <th style="width:70px;">许可文件名称</th>
+                <th style="width:62px;">有效期自</th>
+                <th style="width:62px;">有效期至</th>
+                <th style="width:70px;">许可机关</th>
+                <th style="width:68px;">许可内容</th>
+                <th style="width:40px;">状态</th>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i < insLicenceInfo.length; i++) {%>
+                    <tr>
+                        <td style="width:34px;"><%= i+1 %></td>
+                        <td style="width:80px;"><%= insLicenceInfo[i].licenseFileNumber || '--' %></td>
+                        <td style="width:70px;"><%= insLicenceInfo[i].licenseFileName || '--' %></td>
+                        <td style="width:62px;"><%= insLicenceInfo[i].validityPeriodFrom || '--' %></td>
+                        <td style="width:62px;"><%= insLicenceInfo[i].validityPeriodTo || '--' %></td>
+                        <td style="width:70px;"><%= insLicenceInfo[i].licenseAuthority || '--' %></td>
+                        <td style="width:68px;">
+                            <div style="max-height: 240px;overflow: hidden;">
+                                <%= insLicenceInfo[i].licenseContent || '--' %>
+                            </div>
+                        </td>
+                        <td style="width:40px;"><%= insLicenceInfo[i].status || '--' %></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    <%}else{%>
+        <div class="empty"><%= defaultText %></div>
+    <%}%>
+    <div style="height: 24px;"></div>
+    <div class="illustrate">
+        <div class="d-title"><div class="star">***********************</div><div>正文结束</div><div class="star">**********************</div></div>
+        <div class="illustrate-content">
+            <p>本报告由北京宜信致诚信用管理有限公司提供。</p>
+            <p style="margin-top: 14px;">
+                本报告内容为截至该时间点信用主体在相关信息公示、公开信息数据整理分析所得，我司不对本报告的全面、准确、真实性进行分辨和核验，不负相关法律责任，本报告内容不构成我们对任何人或企业之明示或暗示的观点或保证，仅为您提供参考，真实结果请以各官方网站的公布结果为准。
+                本报告仅供商业决策参考之用，不构成企查查对任何人之明示或暗示的观点或保证。您不得将本数据向任何第三方出售/向境外传输/在境外存储、使用；同时您不得利用本数据从事任何违法违规行为。否则，由此产生的一切后果由您自行承担。
+            </p>
+        </div>
+    </div>
+    
+    <div class="end"></div>
+    
+    <style>
+        .footer{position: relative;width: 100%;height: calc(100% - 164px)}
+        .about{font-size: 12px;color: #000;line-height: 16px;}
+        .about .a-title{padding: 0px 0 14px;font-weight: 600;font-size: 13px;}
+        .about .about-me{position: relative;color: #333;line-height: 20px;}
+        .footer-content {display: flex;justify-content: flex-end;position: absolute;right: 0;bottom: 130px;}
+        .footer-content img{width: 78px;height: 78px;margin-right: 65px;}
+        .footer-content .detail .name{color: #0097F4; font-size: 21px;font-weight: 600;line-height: 22px; margin-bottom: 20px;}
+        .footer-content .detail .item{font-size: 12px;line-height: 12px;color: #000;margin-bottom: 14px;}
+    </style>
+    <div class="footer">
+        <div class="about">
+            <p class="a-title">【致诚信用】</p>
+            <p class="about-me">
+                北京宜信致诚信用管理有限公司（简称“致诚信用”）作为首批获得人民银行颁发企业征信业务经营备案的第三方独立机构，专业从事信用信息征集与咨询、信用数据整合与分析、信用风险评估等企业信用风险管理及其它科技服务。致诚信用基于成熟的信用风险管理经验及数据研发处理和建模能力，矢志构建现代化新型信用体系，提供公正、客观、全面的信用信息咨询，以及专业、先进的信用产品及服务，为用户提供完善的风险管理解决方案，建立和管理信用，防控金融风险，释放信用价值。 
+            </p>
+        </div>
+        <div class="footer-content">
+            <div class="img">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <div class="detail">
+                <div class="name">北京宜信致诚信用管理有限公司</div>
+                <div class="item">邮箱：zhichengcreditEntrust@creditease.cn</div>
+                <div class="item">电话：010-5964 4438</div>
+                <div class="item">地址：北京市朝阳区建国路118号招商局大厦24层</div>
+                <div class="item">邮编：100022</div>
+                <div class="item">网址：www.zhichengcredit.com</div>
+            </div>
+        </div>
+    </div>
+    
+</div>

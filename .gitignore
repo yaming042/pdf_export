@@ -1,0 +1,11 @@
+dist
+node_modules
+logs
+.vscode
+.DS_Store
+npm-debug.log
+
+# IntelliJ project files
+.idea
+*.iml
+yarn.lock

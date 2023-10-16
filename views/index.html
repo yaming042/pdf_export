@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title><%= htmlWebpackPlugin.options.title || "" %></title>
+    <meta http-equiv="cache-control" content="public" />
+    <link rel="icon" type="image/svg+xml" href="/admin/logo.png" />
+    <script src="<%= htmlWebpackPlugin.options.staticPath || '' %>/js/jquery.min.js"></script>
+    <script src="<%= htmlWebpackPlugin.options.staticPath || '' %>/js/html2canvas.min.js"></script>
+    <style>.default-loading{margin:0;margin-top:-50px;font-size:60px;font-weight:bold;color:#e5e5e5;height:100vh;display:flex;align-items:center;justify-content: center;}.default-loading>div{display:flex;flex-direction:column;}.default-loading>div>p{font-size:16px;text-align:center;}</style>
+</head>
+
+<body>
+    <div id="root" style="width: 100%;height: 100%;">
+        <div class="default-loading">
+            <div><%= htmlWebpackPlugin.options.title || "" %></div>
+        </div>
+    </div>
+</body>
+</html>

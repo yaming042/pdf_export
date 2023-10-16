@@ -1,0 +1,188 @@
+[
+    {
+        "id": "xc_en",
+        "name": "详财英文版",
+        "children": ["Return On Equity(ROE)", "Return On Assets(ROA)", "Inventory Turnover", "Receivables Turnover", "Debt to Assets Ratio", "Quick Ratio", "Growth Rate", "Operating Profit Growth" ],
+        "steps": [
+            {
+                "color": "#d83f32",
+                "desc": "Lower than Poor Figure"
+            },
+            {
+                "color": "#db5d46",
+                "desc": "Between Poor and Fair Figure"
+            },
+            {
+                "color": "#e7934a",
+                "desc": "Between Fair and Average Figure"
+            },
+            {
+                "color": "#efe672",
+                "desc": "Between Average and Good Figure"
+            },
+            {
+                "color": "#d1de56",
+                "desc": "Between Good and Excellent Figure"
+            },
+            {
+                "color": "#80c067",
+                "desc": "Over Excellent Figure"
+            }
+        ]
+    },
+    {
+        "id": "cx_cn",
+        "name": "详财中文版",
+        "children": [ "净资产收益率（%）", "总资产回报率（%）", "存货周转率（%）", "应收账款周转率（%）", "资产负债率（%）", "速动比率（%）", "销售（营业）增长率（%）", "销售（营业）利润增长率（%）" ],
+        "steps": [
+            {
+                "color": "#d83f32",
+                "desc": "低于较差值"
+            },
+            {
+                "color": "#db5d46",
+                "desc": "较差与较低之间"
+            },
+            {
+                "color": "#e7934a",
+                "desc": "较低与平均之间"
+            },
+            {
+                "color": "#efe672",
+                "desc": "平均与良好之间"
+            },
+            {
+                "color": "#d1de56",
+                "desc": "良好与优秀之间"
+            },
+            {
+                "color": "#80c067",
+                "desc": "优秀值之上"
+            }
+        ]
+    },
+    {
+        "id": "xc_jp",
+        "name": "详财日文版",
+        "children": [ "純資産収益率", "総資産収益率", "在庫回転率", "売掛金平均回転数", "資産負債率", "当座比率", "販売（営業）増長率", "販売（営業）利潤増長率" ],
+        "steps": [
+            {
+                "color": "#d83f32",
+                "desc": "悪い値より低い"
+            },
+            {
+                "color": "#db5d46",
+                "desc": "悪い値と低い値の間に介している"
+            },
+            {
+                "color": "#e7934a",
+                "desc": "低い値と平均値の間に介している"
+            },
+            {
+                "color": "#efe672",
+                "desc": "平均値と良い値の間に介している"
+            },
+            {
+                "color": "#d1de56",
+                "desc": "良い値と優秀な値の間に介している"
+            },
+            {
+                "color": "#80c067",
+                "desc": "優秀な値の上"
+            }
+        ]
+    },
+    {
+        "id": "ds_jp",
+        "name": "大数日文版",
+        "children": [ "純資産収益率", "総資産収益率", "総資産回転率", "資産負債率", "営業収益增加率", "総資産成長率" ],
+        "steps": [
+            {
+                "color": "#d83f32",
+                "desc": "悪い値より低い"
+            },
+            {
+                "color": "#db5d46",
+                "desc": "悪い値と低い値の間に介している"
+            },
+            {
+                "color": "#e7934a",
+                "desc": "低い値と平均値の間に介している"
+            },
+            {
+                "color": "#efe672",
+                "desc": "平均値と良い値の間に介している"
+            },
+            {
+                "color": "#d1de56",
+                "desc": "良い値と優秀な値の間に介している"
+            },
+            {
+                "color": "#80c067",
+                "desc": "優秀な値の上"
+            }
+        ]
+    },
+    {
+        "id": "ds_en",
+        "name": "大数英文版",
+        "children": [ "Return On Equity(ROE)", "Return On Assets(ROA)", "Total Asset Turnover", "Debt Assets Ratio", "Growth Rate", "Growth Rate of Total Assets" ],
+        "steps": [
+            {
+                "color": "#d83f32",
+                "desc": "Lower than Poor Figure"
+            },
+            {
+                "color": "#db5d46",
+                "desc": "Between Poor and Fair Figure"
+            },
+            {
+                "color": "#e7934a",
+                "desc": "Between Fair and Average Figure"
+            },
+            {
+                "color": "#efe672",
+                "desc": "Between Average and Good Figure"
+            },
+            {
+                "color": "#d1de56",
+                "desc": "Between Good and Excellent Figure"
+            },
+            {
+                "color": "#80c067",
+                "desc": "Over Excellent Figure"
+            }
+        ]
+    },
+    {
+        "id": "ds_cn",
+        "name": "大数中文版",
+        "children": [ "净资产收益率（%）", "总资产回报率（%）", "总资产周转率（%）", "资产负债率（%）", "销售（营业）增长率（%）", "总资产增长率（%）" ],
+        "steps": [
+            {
+                "color": "#d83f32",
+                "desc": "低于较差值"
+            },
+            {
+                "color": "#db5d46",
+                "desc": "较差与较低之间"
+            },
+            {
+                "color": "#e7934a",
+                "desc": "较低与平均之间"
+            },
+            {
+                "color": "#efe672",
+                "desc": "平均与良好之间"
+            },
+            {
+                "color": "#d1de56",
+                "desc": "良好与优秀之间"
+            },
+            {
+                "color": "#80c067",
+                "desc": "优秀值之上"
+            }
+        ]
+    }
+]

@@ -1,0 +1,167 @@
+@font-face{
+    font-family: 'pdfFont';
+    src: url("../../../public/font/font_normal.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'pdfFont';
+    src: url("../../../public/font/font_bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+body, html{
+    font-family: "pdfFont";
+    font-size: 12px;
+    -webkit-text-size-adjust: none;
+    width: 100%;
+    height: 100%;
+    background: #f0f2f5;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul, li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+table{
+    width: 100%;
+    text-align: start;
+    border-radius: 0;
+    border-collapse: unset;
+    border-spacing: 0;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+table th{
+    font-size: 9px;
+    padding: 2px 8px;
+    text-align: left;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+table th.color_1{
+    background: #EBF7FF;
+}
+table td{
+    font-size: 9px;
+    padding: 2px 8px;
+    text-align: left;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+:global .pages{
+    position: relative;
+    width: 595px;
+    margin: 0 auto;
+    outline: none;
+    padding: 0;
+
+    p{padding: 0;margin: 0;box-sizing: border-box;}
+
+    .page{
+        position: relative;
+        background: #fff;
+        overflow: hidden;
+        padding: 0 48px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+        margin: 0px auto 24px;
+        height: 842px;
+
+        &.origin-page{
+            padding: 0;
+        }
+
+        &.export{
+            margin: 0;
+            box-shadow: none;
+        }
+
+        & > .ph{position: relative;height:36px;margin: 0;border-bottom: 1px solid #bfbfbf;}
+        & > .pf{position: absolute;border-top: 1px solid #bfbfbf;display: flex;align-items: center;justify-content: space-between;color: #666;font-weight: 700;padding: 8px 0 24px;left: 48px;bottom:0px;height: 42px;width: calc(100% - 96px);font-size: 10px;}
+        & > .pf > div:first-child span{font-weight: 300;}
+    }
+
+    &.prerender{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -297px;
+        opacity: 0;
+        z-index: -1;
+
+        .pdf-section{
+            background-color: #fff;
+        }
+    }
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 24px 0;
+
+    .container-box{
+        position: relative;
+    }
+
+    .export-pdf{
+        position: fixed;
+        right: 50px;
+        bottom: 50px;
+        width: 64px;
+        height: 64px;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #1677ff;
+        box-shadow: 0 2px 0 rgba(5,145,255,.1);
+        z-index: 9999;
+    }
+    .export-pdf:hover{
+        color: #fff;
+        background-color: #4096ff;
+    }
+
+    .loading{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 99999;
+        background-color: rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #0097F4;
+
+        .loading-spinner{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(17, 133, 215, 0.1);
+            border-left-color: #13ce6d; /* 调整颜色 */
+            border-radius: 50%;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 24px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    }
+}
